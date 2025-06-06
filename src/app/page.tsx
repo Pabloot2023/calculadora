@@ -4,26 +4,45 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
+  const [isResult, setIsResult] = useState(false); // Estado para saber si lo actual es resultado
 
   const appendValue = (value: string) => {
-    setInput((prev) => prev + value);
+    if (isResult) {
+      // Si es resultado y se escribe algo, reiniciamos el input
+      setInput(value);
+      setIsResult(false);
+    } else {
+      setInput((prev) => prev + value);
+    }
   };
 
-  // Ahora recibe el input como parámetro para usar el valor actualizado
-  const calculate = (currentInput: string) => {
+  const calculate = () => {
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(currentInput);
+      const result = eval(input);
       setInput(String(result));
+      setIsResult(true);
     } catch {
       setInput("Error");
+      setIsResult(true);
     }
   };
 
   const clear = () => {
     setInput("");
+    setIsResult(false);
   };
 
+  // Backspace: borra un carácter o limpia todo si es resultado
+  const backspace = () => {
+    if (isResult) {
+      clear();
+    } else {
+      setInput((prev) => prev.slice(0, -1));
+    }
+  };
+
+  // 🎹 Soporte para teclado físico incluyendo Backspace
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const allowedKeys = "0123456789+-*/.";
@@ -32,7 +51,7 @@ export default function Home() {
         appendValue(e.key);
       } else if (e.key === "Enter") {
         e.preventDefault();
-        calculate(input); // PASAMOS input actualizado acá
+        calculate();
       } else if (
         e.key === "Escape" ||
         e.key.toLowerCase() === "c" ||
@@ -40,17 +59,17 @@ export default function Home() {
       ) {
         clear();
       } else if (e.key === "Backspace") {
-        setInput((prev) => prev.slice(0, -1));
+        backspace();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [input]); // IMPORTANTE: ponemos input en el arreglo de dependencias para tener el valor actualizado
+  }, [input, isResult]);
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora con Teclado Mejorado</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora con Backspace Mejorado</h1>
 
       {/* Caja gris completa */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
@@ -64,20 +83,29 @@ export default function Home() {
 
         {/* Botones: números y operadores */}
         <div className="flex space-x-4 w-full">
-          {/* Números en grilla 3x4 */}
+          {/* Números en grilla 3x4 con botón Backspace */}
           <div className="grid grid-cols-3 gap-4 flex-[3]">
-            {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ""].map((v, i) =>
-              v ? (
-                <button
-                  key={v}
-                  onClick={() => appendValue(v)}
-                  className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
-                >
-                  {v}
-                </button>
-              ) : (
-                <div key={i} />
-              )
+            {["1", "2", "3", "4", "5", "6", "7", "8", "9", "←", "0", "."].map(
+              (v, i) =>
+                v === "←" ? (
+                  <button
+                    key="backspace"
+                    onClick={backspace}
+                    className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
+                    aria-label="Backspace"
+                    title="Backspace"
+                  >
+                    ←
+                  </button>
+                ) : (
+                  <button
+                    key={v}
+                    onClick={() => appendValue(v)}
+                    className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
+                  >
+                    {v}
+                  </button>
+                )
             )}
           </div>
 
@@ -88,7 +116,7 @@ export default function Home() {
                 key={op}
                 onClick={() => {
                   if (op === "C") clear();
-                  else if (op === "=") calculate(input); // también pasamos input actualizado acá
+                  else if (op === "=") calculate();
                   else appendValue(op);
                 }}
                 className={`${
