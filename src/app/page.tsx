@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -23,9 +23,31 @@ export default function Home() {
     setInput("");
   };
 
+  // 🎹 Soporte para teclado físico
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const allowedKeys = "0123456789+-*/.";
+
+      if (allowedKeys.includes(e.key)) {
+        appendValue(e.key);
+      } else if (e.key === "Enter") {
+        calculate();
+      } else if (
+        e.key === "Escape" ||
+        e.key.toLowerCase() === "c" ||
+        e.key === "Delete"
+      ) {
+        clear();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora Versión 5 Final</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora con Teclado Mejorado</h1>
 
       {/* Caja gris completa */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
@@ -37,7 +59,7 @@ export default function Home() {
           readOnly
         />
 
-        {/* Botones en dos columnas horizontales: números y operadores */}
+        {/* Botones: números y operadores */}
         <div className="flex space-x-4 w-full">
           {/* Números en grilla 3x4 */}
           <div className="grid grid-cols-3 gap-4 flex-[3]">
@@ -51,12 +73,12 @@ export default function Home() {
                   {v}
                 </button>
               ) : (
-                <div key={i} /> // Espacio vacío para centrar "." debajo del 0
+                <div key={i} />
               )
             )}
           </div>
 
-          {/* Operadores en columna */}
+          {/* Operadores */}
           <div className="flex flex-col space-y-4 flex-[1]">
             {["+", "-", "*", "/", "C", "="].map((op) => (
               <button
