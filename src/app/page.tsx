@@ -25,14 +25,14 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora Mejorada con Fondo</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora Mejorada con Fondo y Números Negros</h1>
 
       {/* Fondo gris rectangular */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg flex space-x-6">
         {/* Display */}
         <input
           type="text"
-          className="mb-6 p-4 text-right w-72 rounded border border-gray-400 text-2xl bg-white"
+          className="mb-6 p-4 text-right w-72 rounded border border-gray-400 text-2xl bg-white text-black"
           value={input}
           readOnly
         />
@@ -44,7 +44,7 @@ export default function Home() {
               <button
                 key={v}
                 onClick={() => appendValue(v)}
-                className="bg-white p-4 rounded shadow text-xl hover:bg-gray-200"
+                className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
               >
                 {v}
               </button>
