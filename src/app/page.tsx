@@ -31,6 +31,7 @@ export default function Home() {
       if (allowedKeys.includes(e.key)) {
         appendValue(e.key);
       } else if (e.key === "Enter") {
+        e.preventDefault(); // ✅ Corrige comportamiento inesperado
         calculate();
       } else if (
         e.key === "Escape" ||
@@ -38,6 +39,8 @@ export default function Home() {
         e.key === "Delete"
       ) {
         clear();
+      } else if (e.key === "Backspace") {
+        setInput((prev) => prev.slice(0, -1));
       }
     };
 
