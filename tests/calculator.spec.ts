@@ -11,7 +11,7 @@ test('TS01: Al presionar cada número, aparece ese número en pantalla', async (
 })
 
 test('TS01b: Al presionar números desde el teclado, aparecen en pantalla', async ({ page }) => {
-   await page.goto('http://localhost:3000');
+  await page.goto('http://localhost:3000');
 
   for (const num of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']) {
     await page.getByRole('button', { name: 'C', exact: true }).click()
