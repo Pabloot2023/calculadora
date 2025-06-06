@@ -15,6 +15,16 @@ export default function Home() {
   }, [input]);
 
   const appendValue = (value: string) => {
+    if (input === "Error") {
+      if ("0123456789.".includes(value)) {
+        setInput(value); // reemplaza el Error
+      } else {
+        return; // ignora operadores luego de Error
+      }
+      setJustCalculated(false);
+      return;
+    }
+
     if (justCalculated) {
       if ("+-*/".includes(value)) {
         setInput((prev) => prev + value);
@@ -29,11 +39,13 @@ export default function Home() {
 
   const calculate = () => {
     try {
-      // Usar el valor actualizado guardado en inputRef.current
       const result = eval(inputRef.current);
 
-      // Validar división por cero y resultados inválidos
-      if (result === Infinity || result === -Infinity || Number.isNaN(result)) {
+      if (
+        result === Infinity ||
+        result === -Infinity ||
+        Number.isNaN(result)
+      ) {
         setInput("Error");
         setJustCalculated(false);
       } else {
@@ -82,15 +94,13 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [justCalculated]);
+  }, [justCalculated, input]);
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora con Manejo de División por Cero</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora con Manejo de Errores</h1>
 
-      {/* Caja gris completa */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
-        {/* Display superior */}
         <input
           type="text"
           className="mb-6 p-4 w-full rounded border border-gray-400 text-2xl bg-white text-black text-right"
@@ -98,24 +108,15 @@ export default function Home() {
           readOnly
         />
 
-        {/* Botones: números y operadores */}
         <div className="flex space-x-4 w-full">
-          {/* Números en grilla 3x4 */}
+          {/* Números y punto */}
           <div className="grid grid-cols-3 gap-4 flex-[3]">
             {[
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "Back",
-              "0",
-              ".",
-            ].map((v, i) =>
+              "1", "2", "3",
+              "4", "5", "6",
+              "7", "8", "9",
+              "Back", "0", ".",
+            ].map((v) =>
               v === "Back" ? (
                 <button
                   key={v}
