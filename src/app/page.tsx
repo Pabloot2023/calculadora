@@ -4,13 +4,18 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
-  const [isResult, setIsResult] = useState(false); // Estado para saber si lo actual es resultado
+  const [justCalculated, setJustCalculated] = useState(false);
 
   const appendValue = (value: string) => {
-    if (isResult) {
-      // Si es resultado y se escribe algo, reiniciamos el input
-      setInput(value);
-      setIsResult(false);
+    if (justCalculated) {
+      if ("+-*/".includes(value)) {
+        // Continúa la expresión con operador
+        setInput((prev) => prev + value);
+      } else {
+        // Reinicia con nuevo valor (número o punto)
+        setInput(value);
+      }
+      setJustCalculated(false);
     } else {
       setInput((prev) => prev + value);
     }
@@ -21,28 +26,28 @@ export default function Home() {
       // eslint-disable-next-line no-eval
       const result = eval(input);
       setInput(String(result));
-      setIsResult(true);
+      setJustCalculated(true);
     } catch {
       setInput("Error");
-      setIsResult(true);
+      setJustCalculated(false);
     }
   };
 
   const clear = () => {
     setInput("");
-    setIsResult(false);
+    setJustCalculated(false);
   };
 
-  // Backspace: borra un carácter o limpia todo si es resultado
+  // Backspace con lógica de borrar todo si justo se acaba de calcular
   const backspace = () => {
-    if (isResult) {
+    if (justCalculated) {
       clear();
     } else {
       setInput((prev) => prev.slice(0, -1));
     }
   };
 
-  // 🎹 Soporte para teclado físico incluyendo Backspace
+  // 🎹 Soporte para teclado físico
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const allowedKeys = "0123456789+-*/.";
@@ -65,11 +70,11 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [input, isResult]);
+  }, [justCalculated]); // importante escuchar cambios en justCalculated
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora con Backspace Mejorado</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora con Continuación Mejorada</h1>
 
       {/* Caja gris completa */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
@@ -83,29 +88,40 @@ export default function Home() {
 
         {/* Botones: números y operadores */}
         <div className="flex space-x-4 w-full">
-          {/* Números en grilla 3x4 con botón Backspace */}
+          {/* Números en grilla 3x4 */}
           <div className="grid grid-cols-3 gap-4 flex-[3]">
-            {["1", "2", "3", "4", "5", "6", "7", "8", "9", "←", "0", "."].map(
-              (v, i) =>
-                v === "←" ? (
-                  <button
-                    key="backspace"
-                    onClick={backspace}
-                    className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
-                    aria-label="Backspace"
-                    title="Backspace"
-                  >
-                    ←
-                  </button>
-                ) : (
-                  <button
-                    key={v}
-                    onClick={() => appendValue(v)}
-                    className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
-                  >
-                    {v}
-                  </button>
-                )
+            {[
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "Back",
+              "0",
+              ".",
+            ].map((v, i) =>
+              v === "Back" ? (
+                <button
+                  key={v}
+                  onClick={backspace}
+                  className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
+                  aria-label="Backspace"
+                >
+                  ←
+                </button>
+              ) : (
+                <button
+                  key={v}
+                  onClick={() => appendValue(v)}
+                  className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
+                >
+                  {v}
+                </button>
+              )
             )}
           </div>
 
