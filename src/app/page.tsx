@@ -5,61 +5,89 @@ import { useState } from "react";
 export default function Home() {
   const [input, setInput] = useState("");
 
-  const handleClick = (value: string) => {
+  const appendValue = (value: string) => {
     setInput((prev) => prev + value);
   };
 
   const calculate = () => {
     try {
-      setInput(eval(input).toString());
+      // eslint-disable-next-line no-eval
+      const result = eval(input);
+      setInput(String(result));
     } catch {
       setInput("Error");
     }
   };
 
-  const clear = () => setInput("");
+  const clear = () => {
+    setInput("");
+  };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Calculadora</h1>
-      <div>
-        <input
-          type="text"
-          value={input}
-          readOnly
-          style={{ fontSize: "2rem", width: "300px", textAlign: "right" }}
-        />
-      </div>
-      <div style={{ marginTop: "10px" }}>
-        {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map((val) => (
+    <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
+      <h1 className="text-3xl font-bold mb-8">Calculadora Mejorada</h1>
+
+      <input
+        type="text"
+        className="mb-6 p-4 text-right w-72 rounded border border-gray-400 text-2xl"
+        value={input}
+        readOnly
+      />
+
+      <div className="flex space-x-4">
+        {/* Números y punto en grilla 3x4 */}
+        <div className="grid grid-cols-3 gap-4">
+          {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."].map((v) => (
+            <button
+              key={v}
+              onClick={() => appendValue(v)}
+              className="bg-white p-4 rounded shadow text-xl hover:bg-gray-200"
+            >
+              {v}
+            </button>
+          ))}
+        </div>
+
+        {/* Botones de operaciones en columna */}
+        <div className="flex flex-col space-y-4">
           <button
-            key={val}
-            onClick={() => (val === "=" ? calculate() : handleClick(val))}
-            style={{
-              fontSize: "1.5rem",
-              width: "60px",
-              height: "60px",
-              margin: "5px"
-            }}
+            onClick={() => appendValue("+")}
+            className="bg-blue-500 text-white p-4 rounded shadow text-xl hover:bg-blue-600"
           >
-            {val}
+            +
           </button>
-        ))}
-        <div>
+          <button
+            onClick={() => appendValue("-")}
+            className="bg-blue-500 text-white p-4 rounded shadow text-xl hover:bg-blue-600"
+          >
+            -
+          </button>
+          <button
+            onClick={() => appendValue("*")}
+            className="bg-blue-500 text-white p-4 rounded shadow text-xl hover:bg-blue-600"
+          >
+            *
+          </button>
+          <button
+            onClick={() => appendValue("/")}
+            className="bg-blue-500 text-white p-4 rounded shadow text-xl hover:bg-blue-600"
+          >
+            /
+          </button>
           <button
             onClick={clear}
-            style={{
-              fontSize: "1.2rem",
-              padding: "10px 30px",
-              marginTop: "10px",
-              backgroundColor: "#f44336",
-              color: "white"
-            }}
+            className="bg-red-500 text-white p-4 rounded shadow text-xl hover:bg-red-600"
           >
-            Borrar
+            C
+          </button>
+          <button
+            onClick={calculate}
+            className="bg-green-600 text-white p-4 rounded shadow text-xl hover:bg-green-700"
+          >
+            =
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
