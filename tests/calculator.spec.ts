@@ -18,3 +18,8 @@ test('TS02: 1 + 2 = 3', async ({ page }) => {
   await page.getByText('=').click();
   await expect(page.locator('input')).toHaveValue('3');
 });
+
+test('TS99: Test fallido adrede', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await expect(page.locator('input')).toHaveValue('9999'); // Esto fallará
+});
