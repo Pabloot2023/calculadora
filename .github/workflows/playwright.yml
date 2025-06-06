@@ -28,7 +28,7 @@ jobs:
         run: npm start &
 
       - name: Wait for server to be ready
-        uses: jakejarvis/wait-action@v0.1.2
+        uses: jakejarvis/wait-action@master
         with:
           url: http://localhost:3000
           timeout: 60
