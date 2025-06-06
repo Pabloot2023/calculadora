@@ -8,85 +8,81 @@ import { expect, test } from '@playwright/test';
 
 test('TS01: Al presionar cada número, aparece ese número en pantalla', async ({ page }) => {
   await page.goto('http://localhost:3000');
+
   for (const num of ['1','2','3','4','5','6','7','8','9','0']) {
-    await page.getByText('C').click();  // Limpiar input antes de cada prueba
-    await page.getByText(num).click();
+    await page.getByRole('button', { name: 'C' }).click(); // Limpiar input antes de cada prueba
+    await page.getByRole('button', { name: num }).click();
     await expect(page.locator('input')).toHaveValue(num);
   }
 });
 
 test('TS02: 1 + 2 = 3', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('1').click();
-  await page.getByText('+').click();
-  await page.getByText('2').click();
-  await page.getByText('=').click();
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByRole('button', { name: '+' }).click();
+  await page.getByRole('button', { name: '2' }).click();
+  await page.getByRole('button', { name: '=' }).click();
   await expect(page.locator('input')).toHaveValue('3');
 });
 
-// Operación resta
 test('TS03: 5 - 3 = 2', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('5').click();
-  await page.getByText('-').click();
-  await page.getByText('3').click();
-  await page.getByText('=').click();
+  await page.getByRole('button', { name: '5' }).click();
+  await page.getByRole('button', { name: '-' }).click();
+  await page.getByRole('button', { name: '3' }).click();
+  await page.getByRole('button', { name: '=' }).click();
   await expect(page.locator('input')).toHaveValue('2');
 });
 
-// Operación multiplicación
 test('TS04: 4 × 5 = 20', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('4').click();
-  await page.getByText('×').click();
-  await page.getByText('5').click();
-  await page.getByText('=').click();
+  await page.getByRole('button', { name: '4' }).click();
+  await page.getByRole('button', { name: '×' }).click();
+  await page.getByRole('button', { name: '5' }).click();
+  await page.getByRole('button', { name: '=' }).click();
   await expect(page.locator('input')).toHaveValue('20');
 });
 
-// Operación división
 test('TS05: 9 ÷ 3 = 3', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('9').click();
-  await page.getByText('÷').click();
-  await page.getByText('3').click();
-  await page.getByText('=').click();
+  await page.getByRole('button', { name: '9' }).click();
+  await page.getByRole('button', { name: '÷' }).click();
+  await page.getByRole('button', { name: '3' }).click();
+  await page.getByRole('button', { name: '=' }).click();
   await expect(page.locator('input')).toHaveValue('3');
 });
 
-// Botón C limpia la pantalla
 test('TS06: Botón C limpia la pantalla', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('9').click();
-  await page.getByText('C').click();
+  await page.getByRole('button', { name: '9' }).click();
+  await page.getByRole('button', { name: 'C' }).click();
   await expect(page.locator('input')).toHaveValue('');
 });
 
-// Backspace elimina último dígito
 test('TS07: Backspace elimina último dígito', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('1').click();
-  await page.getByText('2').click();
-  await page.getByText('⌫').click(); // Suponiendo que usas este símbolo para backspace
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByRole('button', { name: '2' }).click();
+  await page.getByRole('button', { name: '⌫' }).click();  // Ajusta el símbolo si usas otro
   await expect(page.locator('input')).toHaveValue('1');
 });
 
-// División por cero muestra error
 test('TS08: División por cero muestra error', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.getByText('5').click();
-  await page.getByText('÷').click();
-  await page.getByText('0').click();
-  await page.getByText('=').click();
-  await expect(page.locator('input')).toHaveValue('Error'); // Ajusta el texto si usás otro mensaje
+  await page.getByRole('button', { name: '5' }).click();
+  await page.getByRole('button', { name: '÷' }).click();
+  await page.getByRole('button', { name: '0' }).click();
+  await page.getByRole('button', { name: '=' }).click();
+  await expect(page.locator('input')).toHaveValue('Error'); // Cambia si usas otro texto
 });
 
-// Entrada usando teclado físico (tecla 7 y +)
 test('TS09: Entrada usando teclado físico: 7 + 2 = 9', async ({ page }) => {
   await page.goto('http://localhost:3000');
   await page.keyboard.press('7');
   await page.keyboard.press('+');
   await page.keyboard.press('2');
   await page.keyboard.press('Enter');
+  // A veces el input tarda un poco en actualizar, le damos un pequeño tiempo
+  await page.waitForTimeout(500);
   await expect(page.locator('input')).toHaveValue('9');
 });
