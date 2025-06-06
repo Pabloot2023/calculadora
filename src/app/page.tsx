@@ -28,7 +28,7 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-8">Calculadora Versión 5 Final</h1>
 
       {/* Caja gris completa */}
-      <div className="bg-gray-500 p-6 rounded-lg shadow-lg">
+      <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
         {/* Display superior */}
         <input
           type="text"
@@ -38,9 +38,9 @@ export default function Home() {
         />
 
         {/* Botones en dos columnas horizontales: números y operadores */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 w-full">
           {/* Números en grilla 3x4 */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 flex-[3]">
             {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ""].map((v, i) =>
               v ? (
                 <button
@@ -57,7 +57,7 @@ export default function Home() {
           </div>
 
           {/* Operadores en columna */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 flex-[1]">
             {["+", "-", "*", "/", "C", "="].map((op) => (
               <button
                 key={op}
