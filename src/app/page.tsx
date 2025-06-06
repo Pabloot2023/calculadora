@@ -9,10 +9,11 @@ export default function Home() {
     setInput((prev) => prev + value);
   };
 
-  const calculate = () => {
+  // Ahora recibe el input como parámetro para usar el valor actualizado
+  const calculate = (currentInput: string) => {
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(input);
+      const result = eval(currentInput);
       setInput(String(result));
     } catch {
       setInput("Error");
@@ -23,7 +24,6 @@ export default function Home() {
     setInput("");
   };
 
-  // 🎹 Soporte para teclado físico
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const allowedKeys = "0123456789+-*/.";
@@ -31,8 +31,8 @@ export default function Home() {
       if (allowedKeys.includes(e.key)) {
         appendValue(e.key);
       } else if (e.key === "Enter") {
-        e.preventDefault(); // ✅ Corrige comportamiento inesperado
-        calculate();
+        e.preventDefault();
+        calculate(input); // PASAMOS input actualizado acá
       } else if (
         e.key === "Escape" ||
         e.key.toLowerCase() === "c" ||
@@ -46,7 +46,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [input]); // IMPORTANTE: ponemos input en el arreglo de dependencias para tener el valor actualizado
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
@@ -88,7 +88,7 @@ export default function Home() {
                 key={op}
                 onClick={() => {
                   if (op === "C") clear();
-                  else if (op === "=") calculate();
+                  else if (op === "=") calculate(input); // también pasamos input actualizado acá
                   else appendValue(op);
                 }}
                 className={`${
