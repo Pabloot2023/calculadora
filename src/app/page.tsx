@@ -1,40 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [justCalculated, setJustCalculated] = useState(false);
 
+  // Ref para mantener el valor actualizado sincrónicamente
+  const inputRef = useRef("");
+  inputRef.current = input; // siempre sincronizamos el ref con el estado
+
   const appendValue = (value: string) => {
     if (justCalculated) {
       if ("+-*/".includes(value)) {
         // Continúa la expresión con operador
-        setInput((prev) => prev + value);
+        setInput((prev) => {
+          const newVal = prev + value;
+          inputRef.current = newVal;
+          return newVal;
+        });
       } else {
         // Reinicia con nuevo valor (número o punto)
         setInput(value);
+        inputRef.current = value;
       }
       setJustCalculated(false);
     } else {
-      setInput((prev) => prev + value);
+      setInput((prev) => {
+        const newVal = prev + value;
+        inputRef.current = newVal;
+        return newVal;
+      });
     }
   };
 
   const calculate = () => {
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(input);
+      const result = eval(inputRef.current);
       setInput(String(result));
+      inputRef.current = String(result);
       setJustCalculated(true);
     } catch {
       setInput("Error");
+      inputRef.current = "";
       setJustCalculated(false);
     }
   };
 
   const clear = () => {
     setInput("");
+    inputRef.current = "";
     setJustCalculated(false);
   };
 
@@ -43,7 +59,11 @@ export default function Home() {
     if (justCalculated) {
       clear();
     } else {
-      setInput((prev) => prev.slice(0, -1));
+      setInput((prev) => {
+        const newVal = prev.slice(0, -1);
+        inputRef.current = newVal;
+        return newVal;
+      });
     }
   };
 
@@ -70,7 +90,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [justCalculated]); // importante escuchar cambios en justCalculated
+  }, [justCalculated]);
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
