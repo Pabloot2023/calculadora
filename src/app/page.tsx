@@ -1,69 +1,55 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [justCalculated, setJustCalculated] = useState(false);
 
-  // Ref para mantener el valor actualizado sincrónicamente
-  const inputRef = useRef("");
-  inputRef.current = input; // siempre sincronizamos el ref con el estado
-
   const appendValue = (value: string) => {
     if (justCalculated) {
       if ("+-*/".includes(value)) {
         // Continúa la expresión con operador
-        setInput((prev) => {
-          const newVal = prev + value;
-          inputRef.current = newVal;
-          return newVal;
-        });
+        setInput((prev) => prev + value);
       } else {
         // Reinicia con nuevo valor (número o punto)
         setInput(value);
-        inputRef.current = value;
       }
       setJustCalculated(false);
     } else {
-      setInput((prev) => {
-        const newVal = prev + value;
-        inputRef.current = newVal;
-        return newVal;
-      });
+      setInput((prev) => prev + value);
     }
   };
 
   const calculate = () => {
     try {
       // eslint-disable-next-line no-eval
-      const result = eval(inputRef.current);
-      setInput(String(result));
-      inputRef.current = String(result);
-      setJustCalculated(true);
+      const result = eval(input);
+
+      // Revisar divisiones por cero o resultado infinito
+      if (result === Infinity || result === -Infinity || Number.isNaN(result)) {
+        setInput("Error");
+        setJustCalculated(false);
+      } else {
+        setInput(String(result));
+        setJustCalculated(true);
+      }
     } catch {
       setInput("Error");
-      inputRef.current = "";
       setJustCalculated(false);
     }
   };
 
   const clear = () => {
     setInput("");
-    inputRef.current = "";
     setJustCalculated(false);
   };
 
-  // Backspace con lógica de borrar todo si justo se acaba de calcular
   const backspace = () => {
     if (justCalculated) {
       clear();
     } else {
-      setInput((prev) => {
-        const newVal = prev.slice(0, -1);
-        inputRef.current = newVal;
-        return newVal;
-      });
+      setInput((prev) => prev.slice(0, -1));
     }
   };
 
@@ -94,7 +80,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora con Continuación Mejorada</h1>
+      <h1 className="text-3xl font-bold mb-8">Calculadora con Manejo de División por Cero</h1>
 
       {/* Caja gris completa */}
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
