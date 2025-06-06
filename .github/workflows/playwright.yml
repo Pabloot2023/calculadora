@@ -19,18 +19,16 @@ jobs:
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      - name: Build and start app
-        run: |
-          npm run build
-          npm start &
+      - name: Build app
+        run: npm run build
+
+      - name: Start app in background
+        run: npm start &
         env:
           PORT: 3000
 
       - name: Wait for app to be ready
-        uses: cycjimmy/axios-wait-action@v1
-        with:
-          url: 'http://localhost:3000'
-          timeout: 30000
+        run: npx wait-on http://localhost:3000
 
       - name: Run Playwright tests
         run: npx playwright test
