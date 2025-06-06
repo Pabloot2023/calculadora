@@ -2,36 +2,35 @@ name: Playwright Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build app
-        run: npm run build
+      - name: Install Playwright
+        run: npx playwright install --with-deps
 
-      - name: Start server
-        run: npm start &
+      - name: Build and start app
+        run: |
+          npm run build
+          npm start &
+        env:
+          PORT: 3000
 
-      - name: Wait for server to be ready
-        uses: jakejarvis/wait-action@master
+      - name: Wait for app to be ready
+        uses: cycjimmy/axios-wait-action@v1
         with:
-          url: http://localhost:3000
-          timeout: 60
+          url: 'http://localhost:3000'
+          timeout: 30000
 
       - name: Run Playwright tests
         run: npx playwright test
