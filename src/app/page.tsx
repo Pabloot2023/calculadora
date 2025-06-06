@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [justCalculated, setJustCalculated] = useState(false);
 
+  // Ref para mantener el input actualizado dentro de listeners
+  const inputRef = useRef(input);
+
+  // Sincronizar ref con el estado input
+  useEffect(() => {
+    inputRef.current = input;
+  }, [input]);
+
   const appendValue = (value: string) => {
     if (justCalculated) {
       if ("+-*/".includes(value)) {
-        // Continúa la expresión con operador
         setInput((prev) => prev + value);
       } else {
-        // Reinicia con nuevo valor (número o punto)
         setInput(value);
       }
       setJustCalculated(false);
@@ -23,10 +29,10 @@ export default function Home() {
 
   const calculate = () => {
     try {
-      // eslint-disable-next-line no-eval
-      const result = eval(input);
+      // Usar el valor actualizado guardado en inputRef.current
+      const result = eval(inputRef.current);
 
-      // Revisar divisiones por cero o resultado infinito
+      // Validar división por cero y resultados inválidos
       if (result === Infinity || result === -Infinity || Number.isNaN(result)) {
         setInput("Error");
         setJustCalculated(false);
