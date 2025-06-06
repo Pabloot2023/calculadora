@@ -6,10 +6,8 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [justCalculated, setJustCalculated] = useState(false);
 
-  // Ref para mantener el input actualizado dentro de listeners
   const inputRef = useRef(input);
 
-  // Sincronizar ref con el estado input
   useEffect(() => {
     inputRef.current = input;
   }, [input]);
@@ -38,6 +36,12 @@ export default function Home() {
   };
 
   const calculate = () => {
+    if (inputRef.current === "Error") {
+      setInput("Error");
+      setJustCalculated(false);
+      return;
+    }
+
     try {
       const result = eval(inputRef.current);
 
@@ -71,7 +75,6 @@ export default function Home() {
     }
   };
 
-  // 🎹 Soporte para teclado físico
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const allowedKeys = "0123456789+-*/.";
