@@ -68,6 +68,8 @@ export default function Home() {
   };
 
   const backspace = () => {
+    if (input === "Error") return; // 🔒 Bloquear si hay Error
+
     if (justCalculated) {
       clear();
     } else {
