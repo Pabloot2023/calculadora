@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './hooks';
 
 test('TS01: Al presionar cada número, aparece ese número en pantalla', async ({ page }) => {
   await page.goto('http://localhost:3000');
@@ -135,31 +135,48 @@ test('TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)', async (
 // TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)
 test('TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)', async ({ page }) => {
   await page.goto('http://localhost:3000');
+
   await page.getByRole('button', { name: '7' }).click();
   await page.getByRole('button', { name: '*' }).click();
   await page.getByRole('button', { name: '3' }).click();
   await page.getByRole('button', { name: '=' }).click();
 
-  const display = await page.locator('input').inputValue();
-  expect(display).toBe('21');
+  // Pequeña pausa de 200 ms para que la UI actualice el valor
+  await page.waitForTimeout(200);
+
+  // Ahora validar el valor del input
+  await expect(page.locator('input')).toHaveValue('21');
 });
 
-// TS13 - Teclado físico: 1 + + 1 debe dar 2 (operador repetido ignorado)
+
+
 test('TS13 - Teclado físico: 1 + + 1 debe dar 2', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.keyboard.type('1++1');
-  await page.keyboard.press('Enter');
 
-  const display = await page.locator('input').inputValue();
-  expect(display).toBe('2');
+  // Limpiar con Escape (equivalente a 'C')
+  await page.keyboard.press('Escape');
+
+  for (const key of '1++1') {
+    await page.keyboard.press(key);
+    await page.waitForTimeout(100);
+  }
+
+  await page.keyboard.press('Enter');
+  await expect(page.locator('input')).toHaveValue('2');
 });
 
-// TS14 - Teclado físico: 10 + - 2 debe dar 8 (reemplazo de operador)
+
 test('TS14 - Teclado físico: 10 + - 2 debe dar 8', async ({ page }) => {
   await page.goto('http://localhost:3000');
-  await page.keyboard.type('10+-2');
-  await page.keyboard.press('Enter');
 
-  const display = await page.locator('input').inputValue();
-  expect(display).toBe('8');
+  await page.keyboard.press('Escape');
+
+  for (const key of '10+-2') {
+    await page.keyboard.press(key);
+    await page.waitForTimeout(100);
+  }
+
+  await page.keyboard.press('Enter');
+  await expect(page.locator('input')).toHaveValue('8');
 });
+
