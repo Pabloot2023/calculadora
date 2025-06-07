@@ -13,27 +13,39 @@ export default function Home() {
   }, [input]);
 
   const appendValue = (value: string) => {
-    if (input === "Error") {
-      if ("0123456789.".includes(value)) {
-        setInput(value); // reemplaza el Error
-      } else {
-        return; // ignora operadores luego de Error
+  if (input === "Error") {
+    if ("0123456789.".includes(value)) {
+      setInput(value);
+    }
+    return;
+  }
+
+  if (justCalculated) {
+    if ("+-*/".includes(value)) {
+      setInput((prev) => prev + value);
+    } else {
+      setInput(value);
+    }
+    setJustCalculated(false);
+    return;
+  }
+
+  const lastChar = input.slice(-1);
+
+  if ("+-*/".includes(value)) {
+    if ("+-*/".includes(lastChar)) {
+      // Reemplaza operador anterior si es distinto
+      if (lastChar !== value) {
+        setInput((prev) => prev.slice(0, -1) + value);
       }
-      setJustCalculated(false);
+      // Si es el mismo operador, no hace nada (lo ignora)
       return;
     }
+  }
 
-    if (justCalculated) {
-      if ("+-*/".includes(value)) {
-        setInput((prev) => prev + value);
-      } else {
-        setInput(value);
-      }
-      setJustCalculated(false);
-    } else {
-      setInput((prev) => prev + value);
-    }
-  };
+  setInput((prev) => prev + value);
+};
+
 
   const calculate = () => {
     if (inputRef.current === "Error") {

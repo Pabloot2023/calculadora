@@ -104,3 +104,62 @@ test('TS09: Entrada usando teclado físico: 7 + 2 = 9', async ({ page }) => {
 
   await expect(page.locator('input')).toHaveValue('9')
 })
+
+// TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)
+test('TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByRole('button', { name: '+' }).click();
+  await page.getByRole('button', { name: '+' }).click(); // Repetido
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByRole('button', { name: '=' }).click();
+
+  const display = await page.locator('input').inputValue();
+  expect(display).toBe('2');
+});
+
+// TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)
+test('TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByRole('button', { name: '0' }).click();
+  await page.getByRole('button', { name: '+' }).click();
+  await page.getByRole('button', { name: '-' }).click(); // Reemplaza +
+  await page.getByRole('button', { name: '2' }).click();
+  await page.getByRole('button', { name: '=' }).click();
+
+  const display = await page.locator('input').inputValue();
+  expect(display).toBe('8');
+});
+
+// TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)
+test('TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.getByRole('button', { name: '7' }).click();
+  await page.getByRole('button', { name: '*' }).click();
+  await page.getByRole('button', { name: '3' }).click();
+  await page.getByRole('button', { name: '=' }).click();
+
+  const display = await page.locator('input').inputValue();
+  expect(display).toBe('21');
+});
+
+// TS13 - Teclado físico: 1 + + 1 debe dar 2 (operador repetido ignorado)
+test('TS13 - Teclado físico: 1 + + 1 debe dar 2', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.keyboard.type('1++1');
+  await page.keyboard.press('Enter');
+
+  const display = await page.locator('input').inputValue();
+  expect(display).toBe('2');
+});
+
+// TS14 - Teclado físico: 10 + - 2 debe dar 8 (reemplazo de operador)
+test('TS14 - Teclado físico: 10 + - 2 debe dar 8', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.keyboard.type('10+-2');
+  await page.keyboard.press('Enter');
+
+  const display = await page.locator('input').inputValue();
+  expect(display).toBe('8');
+});
