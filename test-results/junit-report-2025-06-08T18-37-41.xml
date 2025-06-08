@@ -1,0 +1,293 @@
+<testsuites id="" name="" tests="17" failures="0" skipped="0" errors="0" time="56.117433000000005">
+<testsuite name="tests\calculator.spec.ts" timestamp="2025-06-08T18:37:41.980Z" hostname="" tests="17" failures="0" skipped="0" time="53.75" errors="0">
+<testcase name="TS01: Al presionar cada número, aparece ese número en pantalla" classname="tests\calculator.spec.ts" time="3.602">
+<system-out>
+<![CDATA[
+Test: TS01: Al presionar cada número, aparece ese número en pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS01-Al-p-d41e2-rece-ese-número-en-pantalla\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS01-Al-p-d41e2-rece-ese-número-en-pantalla\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS01_Al_presionar_cada_n_mero_aparece_ese_n_mero_e_2025_06_08T18_37_47_425Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS01-Al-p-d41e2-rece-ese-número-en-pantalla\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS01: Al presionar cada número, aparece ese número en pantalla
+
+Warning: attachment tests-calculator-TS01-Al-p-d41e2-rece-ese-número-en-pantalla\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS01b: Al presionar números desde el teclado, aparecen en pantalla" classname="tests\calculator.spec.ts" time="3.454">
+<system-out>
+<![CDATA[
+Test: TS01b: Al presionar números desde el teclado, aparecen en pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS01b-Al--4a25e-eclado-aparecen-en-pantalla\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS01b-Al--4a25e-eclado-aparecen-en-pantalla\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS01b_Al_presionar_n_meros_desde_el_teclado_aparec_2025_06_08T18_37_50_892Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS01b-Al--4a25e-eclado-aparecen-en-pantalla\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS01b: Al presionar números desde el teclado, aparecen en pantalla
+
+Warning: attachment tests-calculator-TS01b-Al--4a25e-eclado-aparecen-en-pantalla\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS02: 1 + 2 = 3" classname="tests\calculator.spec.ts" time="3.69">
+<system-out>
+<![CDATA[
+Test: TS02: 1 + 2 = 3 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS02-1-2-3\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS02-1-2-3\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS02_1_2_3_2025_06_08T18_37_54_589Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS02-1-2-3\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS02: 1 + 2 = 3
+
+Warning: attachment tests-calculator-TS02-1-2-3\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS03: 5 - 3 = 2" classname="tests\calculator.spec.ts" time="2.982">
+<system-out>
+<![CDATA[
+Test: TS03: 5 - 3 = 2 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS03-5---3-2\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS03-5---3-2\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS03_5_3_2_2025_06_08T18_37_57_579Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS03-5---3-2\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS03: 5 - 3 = 2
+
+Warning: attachment tests-calculator-TS03-5---3-2\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS04: 4 * 5 = 20" classname="tests\calculator.spec.ts" time="2.707">
+<system-out>
+<![CDATA[
+Test: TS04: 4 * 5 = 20 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS04-4-5-20\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS04-4-5-20\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS04_4_5_20_2025_06_08T18_38_00_289Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS04-4-5-20\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS04: 4 * 5 = 20
+
+Warning: attachment tests-calculator-TS04-4-5-20\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS05: 9 ÷ 3 = 3" classname="tests\calculator.spec.ts" time="2.965">
+<system-out>
+<![CDATA[
+Test: TS05: 9 ÷ 3 = 3 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS05-9-÷-3-3\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS05-9-÷-3-3\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS05_9_3_3_2025_06_08T18_38_03_256Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS05-9-÷-3-3\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS05: 9 ÷ 3 = 3
+
+Warning: attachment tests-calculator-TS05-9-÷-3-3\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS06: Botón C limpia la pantalla" classname="tests\calculator.spec.ts" time="2.973">
+<system-out>
+<![CDATA[
+Test: TS06: Botón C limpia la pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS06-Botón-C-limpia-la-pantalla\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS06-Botón-C-limpia-la-pantalla\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS06_Bot_n_C_limpia_la_pantalla_2025_06_08T18_38_06_194Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS06-Botón-C-limpia-la-pantalla\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS06: Botón C limpia la pantalla
+
+Warning: attachment tests-calculator-TS06-Botón-C-limpia-la-pantalla\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS07: Backspace elimina último dígito" classname="tests\calculator.spec.ts" time="2.904">
+<system-out>
+<![CDATA[
+Test: TS07: Backspace elimina último dígito - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS07-Backspace-elimina-último-dígito\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS07-Backspace-elimina-último-dígito\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS07_Backspace_elimina_ltimo_d_gito_2025_06_08T18_38_09_138Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS07-Backspace-elimina-último-dígito\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS07: Backspace elimina último dígito
+
+Warning: attachment tests-calculator-TS07-Backspace-elimina-último-dígito\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS08: División por cero muestra error" classname="tests\calculator.spec.ts" time="3.432">
+<system-out>
+<![CDATA[
+Test: TS08: División por cero muestra error - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS08-División-por-cero-muestra-error\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS08-División-por-cero-muestra-error\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS08_Divisi_n_por_cero_muestra_error_2025_06_08T18_38_12_599Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS08-División-por-cero-muestra-error\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS08: División por cero muestra error
+
+Warning: attachment tests-calculator-TS08-División-por-cero-muestra-error\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS09: Entrada usando teclado físico: 7 + 2 = 9" classname="tests\calculator.spec.ts" time="3.473">
+<system-out>
+<![CDATA[
+Test: TS09: Entrada usando teclado físico: 7 + 2 = 9 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS09-Entrada-usando-teclado-físico-7-2-9\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS09-Entrada-usando-teclado-físico-7-2-9\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS09_Entrada_usando_teclado_f_sico_7_2_9_2025_06_08T18_38_15_973Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS09-Entrada-usando-teclado-físico-7-2-9\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS09: Entrada usando teclado físico: 7 + 2 = 9
+
+Warning: attachment tests-calculator-TS09-Entrada-usando-teclado-físico-7-2-9\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)" classname="tests\calculator.spec.ts" time="2.94">
+<system-out>
+<![CDATA[
+Test: TS10 - No debe permitir operadores repetidos (1 + + 1 → 2) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS10---No-04da7-eradores-repetidos-1-1-→-2-\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS10---No-04da7-eradores-repetidos-1-1-→-2-\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS10_No_debe_permitir_operadores_repetidos_1_1_2__2025_06_08T18_38_19_025Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS10---No-04da7-eradores-repetidos-1-1-→-2-\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)
+
+Warning: attachment tests-calculator-TS10---No-04da7-eradores-repetidos-1-1-→-2-\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)" classname="tests\calculator.spec.ts" time="2.907">
+<system-out>
+<![CDATA[
+Test: TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS11---De-ac7bd-si-es-diferente-10---2-→-8-\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS11---De-ac7bd-si-es-diferente-10---2-→-8-\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS11_Debe_reemplazar_operador_si_es_diferente_10_2_2025_06_08T18_38_21_948Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS11---De-ac7bd-si-es-diferente-10---2-→-8-\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)
+
+Warning: attachment tests-calculator-TS11---De-ac7bd-si-es-diferente-10---2-→-8-\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)" classname="tests\calculator.spec.ts" time="3.058">
+<system-out>
+<![CDATA[
+Test: TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS12---Co-00b4c-a-sin-interferencia-7-3-21-\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS12---Co-00b4c-a-sin-interferencia-7-3-21-\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS12_Comprobaci_n_de_operaci_n_v_lida_sin_interfer_2025_06_08T18_38_25_019Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS12---Co-00b4c-a-sin-interferencia-7-3-21-\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)
+
+Warning: attachment tests-calculator-TS12---Co-00b4c-a-sin-interferencia-7-3-21-\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS13 - Teclado físico: 1 + + 1 debe dar 2" classname="tests\calculator.spec.ts" time="2.931">
+<system-out>
+<![CDATA[
+Test: TS13 - Teclado físico: 1 + + 1 debe dar 2 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS13---Teclado-físico-1-1-debe-dar-2\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS13---Teclado-físico-1-1-debe-dar-2\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS13_Teclado_f_sico_1_1_debe_dar_2_2025_06_08T18_38_27_957Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS13---Teclado-físico-1-1-debe-dar-2\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS13 - Teclado físico: 1 + + 1 debe dar 2
+
+Warning: attachment tests-calculator-TS13---Teclado-físico-1-1-debe-dar-2\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS14 - Teclado físico: 10 + - 2 debe dar 8" classname="tests\calculator.spec.ts" time="3.359">
+<system-out>
+<![CDATA[
+Test: TS14 - Teclado físico: 10 + - 2 debe dar 8 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS14---Teclado-físico-10---2-debe-dar-8\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS14---Teclado-físico-10---2-debe-dar-8\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS14_Teclado_f_sico_10_2_debe_dar_8_2025_06_08T18_38_31_327Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS14---Teclado-físico-10---2-debe-dar-8\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS14 - Teclado físico: 10 + - 2 debe dar 8
+
+Warning: attachment tests-calculator-TS14---Teclado-físico-10---2-debe-dar-8\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)" classname="tests\calculator.spec.ts" time="2.916">
+<system-out>
+<![CDATA[
+Test: TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS15---Cl-4b3f9--deben-ignorarse-1-1-1-2-1-\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS15---Cl-4b3f9--deben-ignorarse-1-1-1-2-1-\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS15_Click_m_ltiples_puntos_deben_ignorarse_1_1_1__2025_06_08T18_38_34_248Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS15---Cl-4b3f9--deben-ignorarse-1-1-1-2-1-\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)
+
+Warning: attachment tests-calculator-TS15---Cl-4b3f9--deben-ignorarse-1-1-1-2-1-\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+<testcase name="TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)" classname="tests\calculator.spec.ts" time="3.457">
+<system-out>
+<![CDATA[
+Test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS16---Te-54ba7-ben-ignorarse-1-2-3-1-2-23-\test-finished-1.png
+🟢 Movido: C:\Users\Pablo\calculadora-next\test-results\tests-calculator-TS16---Te-54ba7-ben-ignorarse-1-2-3-1-2-23-\test-finished-1.png → C:\Users\Pablo\calculadora-next\evidencias\aprobadas\screenshots\TS16_Teclado_f_sico_m_ltiples_puntos_deben_ignorar_2025_06_08T18_38_37_703Z-test-finished-1.png
+
+[[ATTACHMENT|tests-calculator-TS16---Te-54ba7-ben-ignorarse-1-2-3-1-2-23-\video.webm]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)
+
+Warning: attachment tests-calculator-TS16---Te-54ba7-ben-ignorarse-1-2-3-1-2-23-\test-finished-1.png is missing]]>
+</system-err>
+</testcase>
+</testsuite>
+</testsuites>

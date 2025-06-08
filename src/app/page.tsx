@@ -13,39 +13,44 @@ export default function Home() {
   }, [input]);
 
   const appendValue = (value: string) => {
-  if (input === "Error") {
-    if ("0123456789.".includes(value)) {
-      setInput(value);
-    }
-    return;
-  }
-
-  if (justCalculated) {
-    if ("+-*/".includes(value)) {
-      setInput((prev) => prev + value);
-    } else {
-      setInput(value);
-    }
-    setJustCalculated(false);
-    return;
-  }
-
-  const lastChar = input.slice(-1);
-
-  if ("+-*/".includes(value)) {
-    if ("+-*/".includes(lastChar)) {
-      // Reemplaza operador anterior si es distinto
-      if (lastChar !== value) {
-        setInput((prev) => prev.slice(0, -1) + value);
+    if (input === "Error") {
+      if ("0123456789.".includes(value)) {
+        setInput(value);
       }
-      // Si es el mismo operador, no hace nada (lo ignora)
       return;
     }
-  }
 
-  setInput((prev) => prev + value);
-};
+    if (justCalculated) {
+      if ("+-*/".includes(value)) {
+        setInput((prev) => prev + value);
+      } else {
+        setInput(value);
+      }
+      setJustCalculated(false);
+      return;
+    }
 
+    const lastChar = input.slice(-1);
+
+    if ("+-*/".includes(value)) {
+      if ("+-*/".includes(lastChar)) {
+        if (lastChar !== value) {
+          setInput((prev) => prev.slice(0, -1) + value);
+        }
+        return;
+      }
+    }
+
+    // ✅ PATCH evitar múltiples puntos en el mismo número
+    if (value === ".") {
+      const parts = input.split(/[\+\-\*\/]/);
+      const lastNumber = parts[parts.length - 1];
+      if (lastNumber.includes(".")) return;
+      if (lastChar === ".") return;
+    }
+
+    setInput((prev) => prev + value);
+  };
 
   const calculate = () => {
     if (inputRef.current === "Error") {
@@ -56,7 +61,6 @@ export default function Home() {
 
     try {
       const result = eval(inputRef.current);
-
       if (
         result === Infinity ||
         result === -Infinity ||
@@ -80,8 +84,7 @@ export default function Home() {
   };
 
   const backspace = () => {
-    if (input === "Error") return; // 🔒 Bloquear si hay Error
-
+    if (input === "Error") return;
     if (justCalculated) {
       clear();
     } else {
@@ -92,7 +95,6 @@ export default function Home() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const allowedKeys = "0123456789+-*/.";
-
       if (allowedKeys.includes(e.key)) {
         appendValue(e.key);
       } else if (e.key === "Enter") {
@@ -148,6 +150,7 @@ export default function Home() {
                   key={v}
                   onClick={() => appendValue(v)}
                   className="bg-white text-black p-4 rounded shadow text-xl hover:bg-gray-200"
+                  aria-label={`btn-${v}`} // 👈 Etiqueta única
                 >
                   {v}
                 </button>

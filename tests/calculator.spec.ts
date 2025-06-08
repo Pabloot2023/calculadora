@@ -35,7 +35,7 @@ test('TS03: 5 - 3 = 2', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
   await page.getByRole('button', { name: '5' }).click()
-  await page.getByRole('button', { name: '-' }).click()
+  await page.getByText('-').click()
   await page.getByRole('button', { name: '3' }).click()
   await page.getByRole('button', { name: '=' }).click()
 
@@ -124,13 +124,15 @@ test('TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)', async (
   await page.getByRole('button', { name: '1' }).click();
   await page.getByRole('button', { name: '0' }).click();
   await page.getByRole('button', { name: '+' }).click();
-  await page.getByRole('button', { name: '-' }).click(); // Reemplaza +
+  // Aquí usar getByText para el signo menos, evitar ambigüedad
+  await page.getByText('-').click(); // Reemplaza +
   await page.getByRole('button', { name: '2' }).click();
   await page.getByRole('button', { name: '=' }).click();
 
   const display = await page.locator('input').inputValue();
   expect(display).toBe('8');
 });
+
 
 // TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)
 test('TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)', async ({ page }) => {
@@ -180,3 +182,32 @@ test('TS14 - Teclado físico: 10 + - 2 debe dar 8', async ({ page }) => {
   await expect(page.locator('input')).toHaveValue('8');
 });
 
+test("TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)", async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole("button", { name: "btn-1" }).click();
+  await page.getByRole("button", { name: "btn-." }).click();
+  await page.getByRole("button", { name: "btn-." }).click();
+  await page.getByRole("button", { name: "btn-." }).click();
+  await page.getByRole("button", { name: "btn-1" }).click();
+  await page.getByRole("button", { name: "+" }).click();
+  await page.getByRole("button", { name: "btn-1" }).click();
+  await page.getByRole("button", { name: "=" }).click();
+
+  const inputValue = await page.locator('input[type="text"]').inputValue();
+  expect(inputValue).toBe("2.1");
+});
+
+test('TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.keyboard.press('Escape'); // Limpia entrada
+
+  for (const key of '1.2.3+1') {
+    await page.keyboard.press(key);
+    await page.waitForTimeout(100);
+  }
+
+  await page.keyboard.press('Enter');
+  await expect(page.locator('input')).toHaveValue('2.23');
+});
