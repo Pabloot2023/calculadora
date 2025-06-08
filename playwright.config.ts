@@ -19,9 +19,13 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
 
-    screenshot: 'on',
-    video: 'on',
+    // Solo captura screenshot en fallo
+    screenshot: 'only-on-failure',
+
+    // Solo graba video en fallo
+    video: 'retain-on-failure',
+
+    // Trace solo en fallo (ya está bien)
     trace: 'retain-on-failure'
   },
 });
-
