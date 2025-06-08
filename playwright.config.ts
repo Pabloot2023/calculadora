@@ -11,7 +11,8 @@ export default defineConfig({
 
   reporter: [
     ['junit', { outputFile: junitPath }],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }]
+   // ['html', { outputFolder: 'playwright-report', open: 'never' }]
+   ['./simple-reporter.ts'] // <- usar el reporter limpio
   ],
 
   use: {

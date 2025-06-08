@@ -1,0 +1,225 @@
+<testsuites id="" name="" tests="17" failures="0" skipped="0" errors="0" time="52.547153">
+<testsuite name="tests\calculator.spec.ts" timestamp="2025-06-08T19:04:24.765Z" hostname="" tests="17" failures="0" skipped="0" time="49.993" errors="0">
+<testcase name="TS01: Al presionar cada número, aparece ese número en pantalla" classname="tests\calculator.spec.ts" time="3.726">
+<system-out>
+<![CDATA[
+Test: TS01: Al presionar cada número, aparece ese número en pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS01: Al presionar cada número, aparece ese número en pantalla
+]]>
+</system-err>
+</testcase>
+<testcase name="TS01b: Al presionar números desde el teclado, aparecen en pantalla" classname="tests\calculator.spec.ts" time="2.939">
+<system-out>
+<![CDATA[
+Test: TS01b: Al presionar números desde el teclado, aparecen en pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS01b: Al presionar números desde el teclado, aparecen en pantalla
+]]>
+</system-err>
+</testcase>
+<testcase name="TS02: 1 + 2 = 3" classname="tests\calculator.spec.ts" time="2.347">
+<system-out>
+<![CDATA[
+Test: TS02: 1 + 2 = 3 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS02: 1 + 2 = 3
+]]>
+</system-err>
+</testcase>
+<testcase name="TS03: 5 - 3 = 2" classname="tests\calculator.spec.ts" time="2.235">
+<system-out>
+<![CDATA[
+Test: TS03: 5 - 3 = 2 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS03: 5 - 3 = 2
+]]>
+</system-err>
+</testcase>
+<testcase name="TS04: 4 * 5 = 20" classname="tests\calculator.spec.ts" time="2.533">
+<system-out>
+<![CDATA[
+Test: TS04: 4 * 5 = 20 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS04: 4 * 5 = 20
+]]>
+</system-err>
+</testcase>
+<testcase name="TS05: 9 ÷ 3 = 3" classname="tests\calculator.spec.ts" time="2.425">
+<system-out>
+<![CDATA[
+Test: TS05: 9 ÷ 3 = 3 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS05: 9 ÷ 3 = 3
+]]>
+</system-err>
+</testcase>
+<testcase name="TS06: Botón C limpia la pantalla" classname="tests\calculator.spec.ts" time="2.531">
+<system-out>
+<![CDATA[
+Test: TS06: Botón C limpia la pantalla - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS06: Botón C limpia la pantalla
+]]>
+</system-err>
+</testcase>
+<testcase name="TS07: Backspace elimina último dígito" classname="tests\calculator.spec.ts" time="2.579">
+<system-out>
+<![CDATA[
+Test: TS07: Backspace elimina último dígito - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS07: Backspace elimina último dígito
+]]>
+</system-err>
+</testcase>
+<testcase name="TS08: División por cero muestra error" classname="tests\calculator.spec.ts" time="2.657">
+<system-out>
+<![CDATA[
+Test: TS08: División por cero muestra error - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS08: División por cero muestra error
+]]>
+</system-err>
+</testcase>
+<testcase name="TS09: Entrada usando teclado físico: 7 + 2 = 9" classname="tests\calculator.spec.ts" time="2.678">
+<system-out>
+<![CDATA[
+Test: TS09: Entrada usando teclado físico: 7 + 2 = 9 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS09: Entrada usando teclado físico: 7 + 2 = 9
+]]>
+</system-err>
+</testcase>
+<testcase name="TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)" classname="tests\calculator.spec.ts" time="2.901">
+<system-out>
+<![CDATA[
+Test: TS10 - No debe permitir operadores repetidos (1 + + 1 → 2) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)
+]]>
+</system-err>
+</testcase>
+<testcase name="TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)" classname="tests\calculator.spec.ts" time="3.032">
+<system-out>
+<![CDATA[
+Test: TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)
+]]>
+</system-err>
+</testcase>
+<testcase name="TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)" classname="tests\calculator.spec.ts" time="3.1">
+<system-out>
+<![CDATA[
+Test: TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)
+]]>
+</system-err>
+</testcase>
+<testcase name="TS13 - Teclado físico: 1 + + 1 debe dar 2" classname="tests\calculator.spec.ts" time="3.218">
+<system-out>
+<![CDATA[
+Test: TS13 - Teclado físico: 1 + + 1 debe dar 2 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS13 - Teclado físico: 1 + + 1 debe dar 2
+]]>
+</system-err>
+</testcase>
+<testcase name="TS14 - Teclado físico: 10 + - 2 debe dar 8" classname="tests\calculator.spec.ts" time="3.486">
+<system-out>
+<![CDATA[
+Test: TS14 - Teclado físico: 10 + - 2 debe dar 8 - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS14 - Teclado físico: 10 + - 2 debe dar 8
+]]>
+</system-err>
+</testcase>
+<testcase name="TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)" classname="tests\calculator.spec.ts" time="3.582">
+<system-out>
+<![CDATA[
+Test: TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)
+]]>
+</system-err>
+</testcase>
+<testcase name="TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)" classname="tests\calculator.spec.ts" time="4.024">
+<system-out>
+<![CDATA[
+Test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23) - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)
+]]>
+</system-err>
+</testcase>
+</testsuite>
+</testsuites>

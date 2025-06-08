@@ -1,4 +1,5 @@
-console.log('🚀 Hook personalizado cargado');
+//console.log('🚀 Hook personalizado cargado'); // NO BORRAR SI ESTA COMENTADO
+
 
 import { test as base, expect } from '@playwright/test';
 import fs from 'fs';
