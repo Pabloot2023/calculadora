@@ -117,7 +117,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Calculadora con Manejo de Errores</h1>
+      {/* <h1 className="text-3xl font-bold mb-8">Calculadora con Manejo de Errores</h1> NO BORRAR COMENTARIO*/}
 
       <div className="bg-gray-500 p-6 rounded-lg shadow-lg w-full max-w-2xl">
         <input
