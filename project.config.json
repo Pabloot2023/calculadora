@@ -1,0 +1,6 @@
+{
+  "title": "Calculadora Next.js",
+  "description": "Calculadora web creada con React y Next.js, con soporte para teclado y manejo de errores.",
+  "tech": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  "demo": "https://calculadora-next-delta.vercel.app/"
+}
