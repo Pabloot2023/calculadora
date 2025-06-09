@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
+/* 🎨 Tema claro por defecto */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* 🧩 Variables del tema */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +14,56 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 🌗 Tema gris medio */
+body.theme-mid {
+  --background: #2d2d2d;
+  --foreground: #f0f0f0;
+}
+
+/* 🌑 Tema oscuro */
+body.theme-dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 🧱 Aplicación del tema *//* 🎨 Tema claro por defecto (theme-light) */
+body.theme-light,
+body:not([class*="theme-"]) {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* 🧩 Variables del tema */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 🌗 Tema gris medio */
+body.theme-grey {
+  --background: #2d2d2d;
+  --foreground: #f0f0f0;
+}
+
+/* 🌑 Tema oscuro */
+body.theme-dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* 🧱 Aplicación del tema */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
