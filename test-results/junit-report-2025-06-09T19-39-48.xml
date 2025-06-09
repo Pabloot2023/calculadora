@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="17" failures="0" skipped="0" errors="0" time="28.739299">
-<testsuite name="tests\calculator.spec.ts" timestamp="2025-06-09T17:03:54.336Z" hostname="" tests="17" failures="0" skipped="0" time="26.347" errors="0">
-<testcase name="TS01: Al presionar cada número, aparece ese número en pantalla" classname="tests\calculator.spec.ts" time="2.838">
+<testsuites id="" name="" tests="21" failures="0" skipped="0" errors="0" time="67.20478099999998">
+<testsuite name="tests\calculator.spec.ts" timestamp="2025-06-09T19:39:48.411Z" hostname="" tests="21" failures="0" skipped="0" time="64.71" errors="0">
+<testcase name="TS01: Al presionar cada número, aparece ese número en pantalla" classname="tests\calculator.spec.ts" time="12.922">
 <system-out>
 <![CDATA[
 Test: TS01: Al presionar cada número, aparece ese número en pantalla - status: passed
@@ -13,7 +13,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS01b: Al presionar números desde el teclado, aparecen en pantalla" classname="tests\calculator.spec.ts" time="1.938">
+<testcase name="TS01b: Al presionar números desde el teclado, aparecen en pantalla" classname="tests\calculator.spec.ts" time="8.246">
 <system-out>
 <![CDATA[
 Test: TS01b: Al presionar números desde el teclado, aparecen en pantalla - status: passed
@@ -26,7 +26,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS02: 1 + 2 = 3" classname="tests\calculator.spec.ts" time="1.373">
+<testcase name="TS02: 1 + 2 = 3" classname="tests\calculator.spec.ts" time="2.725">
 <system-out>
 <![CDATA[
 Test: TS02: 1 + 2 = 3 - status: passed
@@ -39,7 +39,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS03: 5 - 3 = 2" classname="tests\calculator.spec.ts" time="1.356">
+<testcase name="TS03: 5 - 3 = 2" classname="tests\calculator.spec.ts" time="2.813">
 <system-out>
 <![CDATA[
 Test: TS03: 5 - 3 = 2 - status: passed
@@ -52,7 +52,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS04: 4 * 5 = 20" classname="tests\calculator.spec.ts" time="1.259">
+<testcase name="TS04: 4 * 5 = 20" classname="tests\calculator.spec.ts" time="2.272">
 <system-out>
 <![CDATA[
 Test: TS04: 4 * 5 = 20 - status: passed
@@ -65,7 +65,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS05: 9 ÷ 3 = 3" classname="tests\calculator.spec.ts" time="1.311">
+<testcase name="TS05: 9 ÷ 3 = 3" classname="tests\calculator.spec.ts" time="2.461">
 <system-out>
 <![CDATA[
 Test: TS05: 9 ÷ 3 = 3 - status: passed
@@ -78,7 +78,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS06: Botón C limpia la pantalla" classname="tests\calculator.spec.ts" time="1.203">
+<testcase name="TS06: Botón C limpia la pantalla" classname="tests\calculator.spec.ts" time="1.901">
 <system-out>
 <![CDATA[
 Test: TS06: Botón C limpia la pantalla - status: passed
@@ -91,7 +91,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS07: Backspace elimina último dígito" classname="tests\calculator.spec.ts" time="1.24">
+<testcase name="TS07: Backspace elimina último dígito" classname="tests\calculator.spec.ts" time="1.852">
 <system-out>
 <![CDATA[
 Test: TS07: Backspace elimina último dígito - status: passed
@@ -104,7 +104,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS08: División por cero muestra error" classname="tests\calculator.spec.ts" time="1.408">
+<testcase name="TS08: División por cero muestra error" classname="tests\calculator.spec.ts" time="1.999">
 <system-out>
 <![CDATA[
 Test: TS08: División por cero muestra error - status: passed
@@ -117,7 +117,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS09: Entrada usando teclado físico: 7 + 2 = 9" classname="tests\calculator.spec.ts" time="1.166">
+<testcase name="TS09: Entrada usando teclado físico: 7 + 2 = 9" classname="tests\calculator.spec.ts" time="2.534">
 <system-out>
 <![CDATA[
 Test: TS09: Entrada usando teclado físico: 7 + 2 = 9 - status: passed
@@ -130,7 +130,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)" classname="tests\calculator.spec.ts" time="1.331">
+<testcase name="TS10 - No debe permitir operadores repetidos (1 + + 1 → 2)" classname="tests\calculator.spec.ts" time="2.02">
 <system-out>
 <![CDATA[
 Test: TS10 - No debe permitir operadores repetidos (1 + + 1 → 2) - status: passed
@@ -143,7 +143,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)" classname="tests\calculator.spec.ts" time="1.361">
+<testcase name="TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8)" classname="tests\calculator.spec.ts" time="2.281">
 <system-out>
 <![CDATA[
 Test: TS11 - Debe reemplazar operador si es diferente (10 + - 2 → 8) - status: passed
@@ -156,7 +156,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)" classname="tests\calculator.spec.ts" time="1.527">
+<testcase name="TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21)" classname="tests\calculator.spec.ts" time="2.217">
 <system-out>
 <![CDATA[
 Test: TS12 - Comprobación de operación válida sin interferencia (7 * 3 = 21) - status: passed
@@ -169,7 +169,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS13 - Teclado físico: 1 + + 1 debe dar 2" classname="tests\calculator.spec.ts" time="1.674">
+<testcase name="TS13 - Teclado físico: 1 + + 1 debe dar 2" classname="tests\calculator.spec.ts" time="2.991">
 <system-out>
 <![CDATA[
 Test: TS13 - Teclado físico: 1 + + 1 debe dar 2 - status: passed
@@ -182,7 +182,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS14 - Teclado físico: 10 + - 2 debe dar 8" classname="tests\calculator.spec.ts" time="1.8">
+<testcase name="TS14 - Teclado físico: 10 + - 2 debe dar 8" classname="tests\calculator.spec.ts" time="2.729">
 <system-out>
 <![CDATA[
 Test: TS14 - Teclado físico: 10 + - 2 debe dar 8 - status: passed
@@ -195,7 +195,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)" classname="tests\calculator.spec.ts" time="1.51">
+<testcase name="TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1)" classname="tests\calculator.spec.ts" time="2.478">
 <system-out>
 <![CDATA[
 Test: TS15 - Click: múltiples puntos deben ignorarse (1...1 + 1 = 2.1) - status: passed
@@ -208,7 +208,7 @@ Screenshots Attachment Paths: no hay
 ]]>
 </system-err>
 </testcase>
-<testcase name="TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)" classname="tests\calculator.spec.ts" time="2.052">
+<testcase name="TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)" classname="tests\calculator.spec.ts" time="2.774">
 <system-out>
 <![CDATA[
 Test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23) - status: passed
@@ -218,6 +218,58 @@ Screenshots Attachment Paths: no hay
 </system-out>
 <system-err>
 <![CDATA[No se encontró carpeta de resultados para el test: TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.23)
+]]>
+</system-err>
+</testcase>
+<testcase name="TS17 - La pantalla inicia en blanco" classname="tests\calculator.spec.ts" time="1.574">
+<system-out>
+<![CDATA[
+Test: TS17 - La pantalla inicia en blanco - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS17 - La pantalla inicia en blanco
+]]>
+</system-err>
+</testcase>
+<testcase name="TS18 - Al hacer clic 1 vez, el tema cambia a gris" classname="tests\calculator.spec.ts" time="1.926">
+<system-out>
+<![CDATA[
+Test: TS18 - Al hacer clic 1 vez, el tema cambia a gris - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS18 - Al hacer clic 1 vez, el tema cambia a gris
+]]>
+</system-err>
+</testcase>
+<testcase name="TS19 - Al hacer clic 2 veces, el tema cambia a negro" classname="tests\calculator.spec.ts" time="1.989">
+<system-out>
+<![CDATA[
+Test: TS19 - Al hacer clic 2 veces, el tema cambia a negro - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS19 - Al hacer clic 2 veces, el tema cambia a negro
+]]>
+</system-err>
+</testcase>
+<testcase name="TS20 - Al hacer clic 3 veces, el tema vuelve a blanco" classname="tests\calculator.spec.ts" time="2.006">
+<system-out>
+<![CDATA[
+Test: TS20 - Al hacer clic 3 veces, el tema vuelve a blanco - status: passed
+Video Attachment Path: no hay
+Screenshots Attachment Paths: no hay
+]]>
+</system-out>
+<system-err>
+<![CDATA[No se encontró carpeta de resultados para el test: TS20 - Al hacer clic 3 veces, el tema vuelve a blanco
 ]]>
 </system-err>
 </testcase>

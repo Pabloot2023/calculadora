@@ -6,6 +6,8 @@ test('TS01: Al presionar cada número, aparece ese número en pantalla', async (
   for (const num of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']) {
     await page.getByRole('button', { name: 'C', exact: true }).click()
     await page.getByRole('button', { name: num }).click()
+
+    await page.waitForTimeout(500);
     await expect(page.locator('input')).toHaveValue(num)
   }
 })
@@ -16,6 +18,8 @@ test('TS01b: Al presionar números desde el teclado, aparecen en pantalla', asyn
   for (const num of ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']) {
     await page.getByRole('button', { name: 'C', exact: true }).click()
     await page.keyboard.press(num)
+
+    await page.waitForTimeout(500);
     await expect(page.locator('input')).toHaveValue(num)
   }
 })
@@ -28,19 +32,25 @@ test('TS02: 1 + 2 = 3', async ({ page }) => {
   await page.getByRole('button', { name: '2' }).click()
   await page.getByRole('button', { name: '=' }).click()
 
+  await page.waitForTimeout(500);
   await expect(page.locator('input')).toHaveValue('3')
 })
 
 test('TS03: 5 - 3 = 2', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
-  await page.getByRole('button', { name: '5' }).click()
-  await page.getByText('-').click()
-  await page.getByRole('button', { name: '3' }).click()
-  await page.getByRole('button', { name: '=' }).click()
+  await page.getByRole('button', { name: '5' }).click();
+  await page.getByText('-').click();
+  await page.getByRole('button', { name: '3' }).click();
+  await page.getByRole('button', { name: '=' }).click();
 
-  await expect(page.locator('input')).toHaveValue('2')
-})
+  // Espera a que el input tenga algún valor (distinto de vacío)
+  await expect(page.locator('input')).not.toHaveValue('', { timeout: 7000 });
+
+  // Luego verifica que sea exactamente '2'
+  await expect(page.locator('input')).toHaveValue('2');
+});
+
 
 test('TS04: 4 * 5 = 20', async ({ page }) => {
   await page.goto('http://localhost:3000');
@@ -61,6 +71,7 @@ test('TS05: 9 ÷ 3 = 3', async ({ page }) => {
   await page.getByRole('button', { name: '3' }).click()
   await page.getByRole('button', { name: '=' }).click()
 
+  await page.waitForTimeout(500);
   await expect(page.locator('input')).toHaveValue('3')
 })
 
@@ -102,6 +113,7 @@ test('TS09: Entrada usando teclado físico: 7 + 2 = 9', async ({ page }) => {
   await page.keyboard.press('2')
   await page.keyboard.press('Enter')
 
+  await page.waitForTimeout(500);
   await expect(page.locator('input')).toHaveValue('9')
 })
 
@@ -164,6 +176,7 @@ test('TS13 - Teclado físico: 1 + + 1 debe dar 2', async ({ page }) => {
   }
 
   await page.keyboard.press('Enter');
+  await page.waitForTimeout(500);
   await expect(page.locator('input')).toHaveValue('2');
 });
 
@@ -210,4 +223,43 @@ test('TS16 - Teclado físico: múltiples puntos deben ignorarse (1.2.3 + 1 = 2.2
 
   await page.keyboard.press('Enter');
   await expect(page.locator('input')).toHaveValue('2.23');
+});
+
+test('TS17 - La pantalla inicia en blanco', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  const bodyClass = await page.evaluate(() => document.body.className);
+  expect(bodyClass).toContain('theme-light'); // empieza en blanco (claro)
+});
+
+test('TS18 - Al hacer clic 1 vez, el tema cambia a gris', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  await page.getByRole('button', { name: 'Theme' }).click();
+
+  const bodyClass = await page.evaluate(() => document.body.className);
+  expect(bodyClass).toContain('theme-gray');
+});
+
+test('TS19 - Al hacer clic 2 veces, el tema cambia a negro', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  const themeButton = page.getByRole('button', { name: 'Theme' });
+  await themeButton.click();
+  await themeButton.click();
+
+  const bodyClass = await page.evaluate(() => document.body.className);
+  expect(bodyClass).toContain('theme-black');
+});
+
+test('TS20 - Al hacer clic 3 veces, el tema vuelve a blanco', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+
+  const themeButton = page.getByRole('button', { name: 'Theme' });
+  await themeButton.click();
+  await themeButton.click();
+  await themeButton.click();
+
+  const bodyClass = await page.evaluate(() => document.body.className);
+  expect(bodyClass).toContain('theme-light');
 });
