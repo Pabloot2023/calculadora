@@ -1,3 +1,5 @@
+// app/layout.tsx
+import ThemeToggle from "@/components/ThemeToggle"; // asegurate que la ruta sea correcta
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased theme-light`}
       >
-        {children}
+        {/* Botón flotante */}
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
+
+        {/* Contenido principal */}
+        <main>{children}</main>
       </body>
     </html>
   );
