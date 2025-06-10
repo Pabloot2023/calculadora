@@ -19,9 +19,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 px-3 py-2 rounded bg-gray-300 text-black hover:bg-gray-400 transition"
+      className="fixed top-4 right-4 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-yellow-200 text-yellow-800 text-2xl shadow hover:bg-yellow-300 transition"
+      aria-label="Cambiar tema"
     >
-      Theme
+      ☀️
     </button>
   );
 }
