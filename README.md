@@ -40,4 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # Calculadora
 
-Este proyecto fue renombrado correctamente.
+Este proyecto fue renombrado correctamente. v2
