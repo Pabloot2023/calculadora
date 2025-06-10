@@ -1,6 +1,6 @@
 {
   "title": "Calculadora",
   "description": "Calculadora web con soporte para teclado, manejo de errores y tres temas light/gray/dark",
-  "tech": ["HTML", "Next.js", "TypeScript" ],
+  "tech": ["HTML", "Next.js", "TypeScript", "CSS" ],
   "demo": "https://calculadora-next-delta.vercel.app/"
 }
