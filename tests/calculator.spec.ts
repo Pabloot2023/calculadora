@@ -235,7 +235,7 @@ test('TS17 - La pantalla inicia en blanco', async ({ page }) => {
 test('TS18 - Al hacer clic 1 vez, el tema cambia a gris', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
-  await page.getByRole('button', { name: 'Theme' }).click();
+  await page.getByRole('button', { name: 'Cambiar tema' }).click();
 
   const bodyClass = await page.evaluate(() => document.body.className);
   expect(bodyClass).toContain('theme-gray');
@@ -244,7 +244,7 @@ test('TS18 - Al hacer clic 1 vez, el tema cambia a gris', async ({ page }) => {
 test('TS19 - Al hacer clic 2 veces, el tema cambia a negro', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
-  const themeButton = page.getByRole('button', { name: 'Theme' });
+  const themeButton = page.getByRole('button', { name: 'Cambiar tema' });
   await themeButton.click();
   await themeButton.click();
 
@@ -255,7 +255,7 @@ test('TS19 - Al hacer clic 2 veces, el tema cambia a negro', async ({ page }) =>
 test('TS20 - Al hacer clic 3 veces, el tema vuelve a blanco', async ({ page }) => {
   await page.goto('http://localhost:3000');
 
-  const themeButton = page.getByRole('button', { name: 'Theme' });
+  const themeButton = page.getByRole('button', { name: 'Cambiar tema' });
   await themeButton.click();
   await themeButton.click();
   await themeButton.click();
